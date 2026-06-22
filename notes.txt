@@ -78,7 +78,7 @@ NetAdapter 3: VMNet16 (10.69.255.0/29)
 !@cmd
 route add 172.16.29.0 mask 255.255.255.0 10.69.255.6
 
-
+How to configure DHCP on SecureCRT
 1. configure C1/C2 as DHCP Servers for P1/P2
 C1: 10.2.1.100 - 10.2.1.199
 C2: 10.2.1.200 - 100.2.1.254
