@@ -1,0 +1,143 @@
+task 1: right tools for network engineeers:
+
+* hardware: console cable
+* software: POOE: PUTTY, RICH: SECURECRT (199 USD)
+CUBAO
+
+sr: show run
+ss: show start
+crs: copy run start
+siib = sh ip int brief
+sit = sh int trunk
+smac = sh mac address-table
+sir = sh ip route
+scn = sh cdp neighbor
+
+why Callmanager voip earn x as much:
+L7: application
+L6: presentation
+L5: session
+L4: transport
+L3: network
+L2: Data-link: Mac Address: 
+L1: Physical: 802.3af 48v
+
+
+TASK2: REALWORLD vs CLOUD/VM/DOCKERS
+ NET ENG, NETANLY, vs DEVOPS,
+
+The Job of Edge
+1. Routing Static: ccna
+2.~ OSPF: ccna
+3.~ EIGRP: ccnp
+4.~ BGP: ccnp
+5. ~ VPN: ccie
+
+TASK5: lethal Combo: rare combo:
+
+latop: ryzen9,i9, rtx5070, 64gb, 4th ssd: = 65k
+
+JSON: Javascript Object Notation
+
+name: 92-OKADA-AP
+SSID: 92-okadaFreewifi
+channel: 10
+
+WINSERVER - ns.ccna92.com 10.92.1.8
+CTAAS - ct.ccna92.com
+CBABA - cb.ccna92.com
+CUCM - cm.ccna92.com
+EDGE - ed.ccna92.com
+C6 - c6.ccna92.com
+C8 - c8.ccna92.com
+
+
+route  add   10.0.0.0   mask   255.0.0.0    10.92.1.4
+route  add  200.0.0.0   mask  255.255.255.0   10.92.1.4
+
+
+!@CoreTAAS, baba
+conf t
+ ip domain lookup
+ ip name-server 10.92.1.8
+end
+
+
+Login: root
+Pass: C1sc0123
+
+Get IP:
+rm -rf /etc/udev/rules.d/70-persistent-net.rules
+reboot
+
+Set NetAdapters:
+NetAdapter 1: NAT (208.8.8.0/24)
+NetAdapter 2: VMNet15 (10.255.10.0/24)
+NetAdapter 3: VMNet16 (10.69.255.0/29)
+
+!@cmd
+route add 172.16.29.0 mask 255.255.255.0 10.69.255.6
+
+
+1. configure C1/C2 as DHCP Servers for P1/P2
+C1: 10.2.1.100 - 10.2.1.199
+C2: 10.2.1.200 - 100.2.1.254
+
+
+!@C1
+conf t
+ ip dhcp excluded-add 10.2.1.1 10.2.1.99
+ ip dhcp excluded-add 10.2.1.200 10.2.1.254
+ ip dhcp pool MGMTPOOL
+  network	 10.2.1.0 255.255.255.0
+  default-router 10.2.1.1
+  dns-server  	 10.2.1.1
+  domain-name    MGMT.COM
+  end
+
+!@A1
+conf t
+int e0/0
+switchport mode access
+switchport access vlan 10
+end
+
+!@A2
+conf t
+int e1/0
+switchport mode access
+switchport access vlan 10
+end
+
+!@C2
+conf t
+int e1/1
+switchport mode access
+switchport access vlan 10
+end
+
+!@P1
+conf t
+int e0/0
+no shut
+ip add dhcp
+end
+
+!@P2
+conf t
+int e1/0
+no shut
+ip add dhcp
+end
+
+
+
+
+
+
+
+
+
+
+
+
