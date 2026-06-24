@@ -1,0 +1,20 @@
+!@CoreTAAS
+Conf t
+int fa0/9
+no sw
+ip add 192.168.147.161 255.255.255.224
+no shut
+end
+
+!@CoreBABA
+conf t
+int fa0/9
+no sw
+ip add 192.168.147.200 255.255.255.224
+no shut
+end
+
+
+find the network:
+
+192.168.147.200 /27 (4th 32i)

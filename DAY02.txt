@@ -1,0 +1,33 @@
+RIVAN NETWORK END TRAINING DAY2:
+
+TASK1: 
+PRICE? CAMERA? CPU? MEMORY?
+
+TASK2: HOW TO USE THE RIVAN FINGER METHOD:
+- BRUCE LEE TECH: BRAIN RESET:
+
+fix your brain
+
+PERA             IPV4            IPV6
+
+5000             5.0.0.0         :5000:
+
+
+3000            3.0.0.0          :3000:
+3001            2.255.255.255    :2FFF:
+
+
+7099            7.0.255.255      70FF
+7098            6.255.254.254    70FE
+                                 7100
+
+
+TASK3: HOW TO subnet ipv4: 10.0.0.0/8 (16M)
+
+2 METHODS: WORLDMETHOD VS RIVANMETHOD
+
+CSI: CONVERT, SUBRACTIT, IPASOLSAHIWA
+
+
+
+   

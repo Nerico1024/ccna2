@@ -1,0 +1,159 @@
+Day3: Review:
+Subnet 192.168.1.0/24 To only 2 host
+per Subnet.
+
+Conv: 2b
+subt: 30b 4th 4i
+ipask: ipask4thsa4i
+Urs
+Network Address: 192.168.1.4/30
+1st Address: 192.168.1.5
+Last Address: 192.168.1.6
+Broadcast: 192.168.1.7
+Not Urs: 192.168.1.8/?
+
+Task1: How to pretend/fake having 2-3 years in Network Engineering
+
+http://msp.rivannoc.com/otrs/index.pl
+admin
+C1sc0123
+
+http://msp.rivannoc.com/otrs/customer.pl
+sj@goodyear.com
+
+
+task2: NetworkAddress, hostaddress, IPaddress\
+
+10.0.0.5/8 = ip address: neta + HOST:
+172.16.1.5/16NETADD: 172.16
+host add: 1.5
+
+192.168.10.95/24 net add: 192.168.10
+
+
+How to route: static, default, ospf, eigrp, bgp, vpn tunneling
+
+
+pick a position:
+R4: static routing: 
+e1/2
+
+config t                            
+no ip route 10.1.1.4 255.255.255.252 10.1.1.9
+no ip route 10.1.1.0 255.255.255.252 10.1.1.9
+
+R3:
+no ip route 10.1.1.0 255.255.255.252 10.1.1.6
+
+R1:
+no ip route 10.1.1.4 255.255.255.252 10.1.1.2
+no ip route 10.1.1.8 255.255.255.252 10.1.1.2
+
+R2:
+No ip route 10.1.1.0 255.255.255.252 10.1.1.6
+
+R4:
+100.43.72.0/24
+CISCO: 
+WINDOWS:
+
+Task4: removing static routes:
+
+network address =  network prefix
+
+192.168.1.55/28 = .48
+192.168.1.105/28 = .96
+192.168.1.10/28 = .0
+192.168.1.70/28 = .64
+
+
+FIND THE KALYE OR NETWORK ADDRESS:
+
+192.168.1.100/26 = 192.168.1.64 64 < 100
+EIGRP: network 192.168.1.64 0.0.0.63, 
+ospf: network 192.168.1.64 x.x.x.192
+bgp: network 192.168.1.64 Mask x.x.x.192
+ 
+192.168.1.205/27 = 192.168.1.192 224 greater than 205 so it should be 192
+EIGRP: network 192.168.1.192 0.0.0.31, wildcard 32-1
+ospf: network 192.168.1.192 x.x.x.224
+bgp: network 192.168.1.192 Mask x.x.x.224
+
+
+192.168.1.150/30 = 192.168.1.148
+EIGRP
+OSPF
+BGP
+
+192.168.1.131/28 = 192.168.1.128
+EIGRP
+OSPF
+BGP
+
+
+How to configure real POGO bgp:
+
+R1:
+config t
+router bgp 1
+bgp router-id 1.1.1.1
+bgp log-neighbor-changes
+neighbor 108.8.8.4 remote-as 45
+neighbor 207.7.7.2 remote-as 2
+neighbor 209.9.9.3 remote-as 3
+address-family ipv4
+neighbor 108.8.8.4 activate
+neighbor 207.7.7.2 activate
+neighbor 209.9.9.3 activate
+network 209.9.9.0/24 mask 255.255.255.0
+network 208.8.8.0/24 mask 255.255.255.0
+network 207.7.7.0/24 mask 255.255.255.0
+network 10.1.1.0/30 mask 255.255.255.252
+
+
+config t
+int e1/0
+   switchport mode access
+   switchport access vlan 20
+   do show vlan brief
+A1: lipat vlan from v1 to v10
+
+
+STANDARD LIST:
+access-list BAWALBAHAY
+DENY addict
+deny droga
+deny magnanakaw
+denymanguutang
+deny
+PERMIT ALL
+interface gatebahay
+apply-list bawalbahay in
+EXTENDED LIST: specific: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

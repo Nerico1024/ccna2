@@ -1,0 +1,18 @@
+!@C2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 67
+do sh vlan br
+end
+
+@S2:
+config t
+int e1/0
+no shut 
+no ip address dhcp
+no shut
+do bp
+do sh ip domain
+bp
+end

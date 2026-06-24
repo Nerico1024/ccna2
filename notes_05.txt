@@ -1,0 +1,71 @@
+!@C1/D1
+
+CONFIG T
+VLAN 67
+NAME DPWH.GOV.PH
+INTERFACE VLAN 67
+DESC DPWH.GOV.PH
+NO SHUT
+IP ADD 172.16.16.1 255.255.240.0
+EXIT
+
+ip dhcp excluded-add 172.16.16.100 172.16.16.100
+ip dhcp pool DPWH.GOV.PH
+ network 172.16.16.0 255.255.240.0
+ default-router 172.16.16.1
+DOMAIN-NAME DPWH.GOV.PH
+DNS-SERVER 8.8.8.8
+END
+SH IP DHCP BINDING
+
+!@C2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 67
+do sh vlan br
+end
+
+@S2:
+config t
+int e1/0
+no shut 
+no ip address dhcp
+no shut
+do bp
+do sh ip domain
+bp
+end
+
+
+@A2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 92
+do sh vlan br
+@p2:
+config t
+int e1/0
+no shut
+do ip address dhcp
+no shut
+do bp
+do sh ip domain 
+end
+
+@s1:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una
+
+@s2:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una

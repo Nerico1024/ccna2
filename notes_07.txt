@@ -1,0 +1,71 @@
+!@C2
+
+CONFIG T
+VLAN 193
+NAME TELUS.COM
+INTERFACE VLAN 193
+DESC TELUS.COM
+NO SHUT
+IP ADD 192.168.147.161 255.255.240.0
+EXIT
+
+ip dhcp excluded-add 192.168.147.161 192.168.147.162
+ip dhcp pool TELUS.COM
+ network 192.168.147.160 255.255.255.224
+ default-router 192.168.147.161
+DOMAIN-NAME DPWH.GOV.PH
+DNS-SERVER 8.8.8.8
+END
+SH IP DHCP BINDING
+
+!@C1:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 193
+do sh vlan br
+end
+
+@S1:
+config t
+int e1/0
+no shut 
+no ip address dhcp
+no shut
+do bp
+do sh ip domain
+end
+bp
+
+
+@A2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 193
+do sh vlan br
+@p2:
+config t
+int e1/0
+no shut
+do ip address dhcp
+no shut
+do bp
+do sh ip domain 
+end
+
+@s1:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una
+
+@s2:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una

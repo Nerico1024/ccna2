@@ -1,0 +1,70 @@
+!@C2/D2
+
+CONFIG T
+VLAN 92
+NAME COMELEC.GOV.PH
+INTERFACE VLAN 92
+DESC COMELEC.GOV.PH
+NO SHUT
+IP ADD 172.16.0.33 255.255.255.224
+EXIT
+
+ip dhcp excluded-add 172.16.0.33 172.16.0.35
+ip dhcp pool COMELEC.GOV.PH
+ network 172.16.0.33 255.255.255.224
+ default-router 172.16.4.1
+DOMAIN-NAME COMELEC.GOV.PH
+DNS-SERVER 8.8.8.8
+END
+SH IP DHCP BINDING
+
+@A2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 92
+do sh vlan br
+end
+
+@p2:
+config t
+int e1/0
+no shut 
+no ip address dhcp
+no shut
+do bp
+do sh ip domain
+end
+
+
+@A2:
+config t
+int e1/0
+switchport mode access
+switchport access vlan 92
+do sh vlan br
+@p2:
+config t
+int e1/0
+no shut
+do ip address dhcp
+no shut
+do bp
+do sh ip domain 
+end
+
+@s1:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una
+
+@s2:
+config t
+interface e1/0
+no shut
+ip add dhcp
+end
+show ip int br | ex una
